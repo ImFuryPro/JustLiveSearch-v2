@@ -1,10 +1,8 @@
 # Just Live Search v2.0
 Just Live Search v2.0
 
-Author: Иван "ImFuryPro" Сапоненко
-
-Version: 2.0
-
+Author: Иван "ImFuryPro" Сапоненко <br>
+Version: 2.0 <br>
 Description: Реализует живой поиск по содержимому блоков или таблиц. Версия без использования jQuery.
 
 Версия с JQuery: [https://github.com/ImFuryPro/JustLiveSearch](https://github.com/ImFuryPro/JustLiveSearch)
