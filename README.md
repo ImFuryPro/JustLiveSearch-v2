@@ -5,7 +5,7 @@ Author: Иван "ImFuryPro" Сапоненко
 Version: 2.0
 Description: Реализует живой поиск по содержимому блоков или таблиц. Версия без использования jQuery.
 
-Версия с JQuery: https://github.com/ImFuryPro/JustLiveSearch[https://github.com/ImFuryPro/JustLiveSearch]
+Версия с JQuery: [https://github.com/ImFuryPro/JustLiveSearch](https://github.com/ImFuryPro/JustLiveSearch)
 
 ## Использование
 1. Для поисковой строки input устанавливаем аттрибут [data-query="*"], под * - имя поиска;

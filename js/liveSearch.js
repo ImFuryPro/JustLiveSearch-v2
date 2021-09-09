@@ -11,22 +11,22 @@
 
 document.addEventListener("DOMContentLoaded", function () { 
     let inputList      = document.querySelectorAll('input[data-query]'),
-        searchBlock    = document.querySelectorAll('[data-result]'),
+        searchBlock    = document.querySelectorAll('[data-searchable]'),
         searchElements = "";
 
     inputList.forEach(input => {
         input.addEventListener("keyup", function () {
             searchBlock.forEach(search => {
                 // Проверяем совпадение поисковой строки и блока с искомыми элементами
-                if (this.dataset.query === search.dataset.result) {
+                if (this.dataset.query === search.dataset.searchable) {
                     // Определяем тег искомого блока
-                    // Для TABLE - ищем tr, для DIV - одноименный тег
+                    // Для TABLE - ищем tr, для DIV - ищем div, p, span
                     switch (search.tagName) {
                         case "TABLE":
                             searchElements = search.querySelectorAll("tr");
                             break;
                         case "DIV":
-                            searchElements = search.querySelectorAll("div");
+                            searchElements = search.querySelectorAll("div, p, span");
                             break;
                         default:
                             searchElements = search.querySelectorAll("div");

@@ -2,13 +2,13 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Live Search v1.1 by ImFuryPro</title>
+        <title>Live Search v2 by ImFuryPro</title>
         <link rel="stylesheet" type="text/css" href="./css/justStyle-v3.0.css">
     </head>
     <body>
         <div id="main" class="height100">
             <div class="mainContent">
-                <h1>Live Search without AJAX</h1>
+                <h1>Live Search v2</h1>
                 <div class="block">
                     <div class="title">Live Search in Table</div>
                     <input data-query="search" type="text" class="field" placeholder="Поиск">
@@ -41,24 +41,33 @@
                                 <td>Директор</td>
                                 <td>40000</td>
                             </tr>
+                            <tr class="employee">
+                                <td>Пых Ибрагим Аристархович</td>
+                                <td>Арт Директор</td>
+                                <td>35000</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="block">
                     <div class="title">Live Search in Blocks</div>
-                        <input data-query="searchDiv" type="text" class="field" placeholder="Поиск">
-                        <div data-searchable="searchDiv">
-                            <div class="list">Test 1</div>
-                            <div class="list">Test 1</div>
-                            <div class="list">Test 2</div>
-                            <div class="list">Test 3</div>
-                            <div class="list">Test 1</div>
+                    <input data-query="searchDiv" type="text" class="field" placeholder="Поиск">
+                    <div data-searchable="searchDiv">
+                        <div class="list">
+                            <div>Test 1</div>
+                            <p>Test 14</p>
+                            <span>Test 34</span>
                         </div>
+                        <div class="list">Test 1</div>
+                        <div class="list">Test 2</div>
+                        <div class="list">Test 3</div>
+                        <div class="list">Test 1</div>
+                        <p class="list">Некоторый текст в теге p искомом блоке, <a href="https://imfurypro.ru/" target="_blank">а тут и ссылка затесалась</a></p>
+                        <span class="list">Некоторый текст в теге span искомом блоке</span>
                     </div>
                 </div>
             </div>
         </div>
-
-        <script type="text/javascript" src="./js/liveSearch.js"></script>
+        <script src="./js/liveSearch.js"></script>
     </body>
 </html>
