@@ -14,24 +14,39 @@ document.addEventListener("DOMContentLoaded", function () {
         searchBlock    = document.querySelectorAll('[data-searchable]'),
         searchElements = "";
 
+    // Показываем, если найден элемент
+    function showIfFound(item, input, foundEl) {
+        if (item.innerHTML.toLowerCase().includes(input.value.toLowerCase())) {
+            foundEl.style.display = null;
+        }
+    }
+
+    // Определяем тег искомого блока
+    // Для TABLE - ищем tr, для DIV - ищем div, p, span
+    function getSearchElem(tagName, search) {
+        let searchElements = "";
+
+        switch (tagName) {
+            case "TABLE":
+                searchElements = search.querySelectorAll("tr");
+                break;
+            case "DIV":
+                searchElements = search.querySelectorAll("div, p, span");
+                break;
+            default:
+                searchElements = search.querySelectorAll("div");
+                break;
+        }
+
+        return searchElements;
+    }
+
     inputList.forEach(input => {
         input.addEventListener("keyup", function () {
             searchBlock.forEach(search => {
                 // Проверяем совпадение поисковой строки и блока с искомыми элементами
                 if (this.dataset.query === search.dataset.searchable) {
-                    // Определяем тег искомого блока
-                    // Для TABLE - ищем tr, для DIV - ищем div, p, span
-                    switch (search.tagName) {
-                        case "TABLE":
-                            searchElements = search.querySelectorAll("tr");
-                            break;
-                        case "DIV":
-                            searchElements = search.querySelectorAll("div, p, span");
-                            break;
-                        default:
-                            searchElements = search.querySelectorAll("div");
-                            break;
-                    }
+                    searchElements = getSearchElem(search.tagName, search); // Определяем тег искомого блока
                     
                     searchElements.forEach(searchItem => {
                         if (this.value.length > 0) {
@@ -42,15 +57,11 @@ document.addEventListener("DOMContentLoaded", function () {
                                 if (searchItem.children.length > 0) {
                                     // Пробегаемся по дочерним элементам искомого элемента, если таковы есть
                                     for (let itemChild of searchItem.children) {
-                                        if (itemChild.innerHTML.toLowerCase().includes(this.value.toLowerCase())) {
-                                            searchItem.style.display = null;
-                                        }
+                                        showIfFound(itemChild, this, searchItem);
                                     };
                                 } else {
                                     // Иначе, сразу смотрим искомый элемент
-                                    if (searchItem.innerHTML.toLowerCase().includes(this.value.toLowerCase())) {
-                                        searchItem.style.display = null;
-                                    }
+                                    showIfFound(searchItem, this, searchItem);
                                 }
                             }
                         } else {
